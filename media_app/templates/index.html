@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Media Gallery</h1>
+{% for media in media_items %}
+    <div>
+        {% if media.media_type == 'image' %}
+            <img src="{{ media.file.url }}" alt="{{ media.title }}" style="max-width: 200px;">
+        {% elif media.media_type == 'video' %}
+            <video width="320" height="240" controls>
+                <source src="{{ media.file.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% elif media.media_type == 'audio' %}
+            <audio controls>
+                <source src="{{ media.file.url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        {% endif %}
+        <p>{{ media.title }}</p>
+        <p>{{ media.description }}</p>
+    </div>
+{% empty %}
+    <p>No media available.</p>
+{% endfor %}
+{% endblock %}

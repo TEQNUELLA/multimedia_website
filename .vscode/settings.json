@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "venv/bin/python", // or "venv\\Scripts\\python.exe" on Windows
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "[django-html]": {
+        "editor.defaultFormatter": "batisteo.vscode-django"
+    }
+}
